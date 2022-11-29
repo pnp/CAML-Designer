@@ -1,0 +1,216 @@
+﻿<UserControl x:Class="CamlDesigner2013.MdiView.UI.MdiView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:CamlDesigner2013.ViewModels"
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                 xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+             xmlns:ListBoxes="clr-namespace:CamlDesigner2013.Controls.Drag"
+             xmlns:local="clr-namespace:CamlDesigner2013" 
+             xmlns:controls="clr-namespace:CamlDesigner2013.Controls"
+             xmlns:test="clr-namespace:CamlDesigner2013.Controls.Drag"
+             mc:Ignorable="d" 
+              d:DesignHeight="786" d:DesignWidth="1024">
+    <!--<UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.AnimatedSingleRowTabControl.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>-->
+    <Grid x:Name="GeneralGrid"  SnapsToDevicePixels="True"  >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ComboBox x:Name="QueryTypeComboBox" SelectedIndex="0" Grid.Row="0" Width="150" HorizontalAlignment="Left" Margin="0,0,0,10" SelectionChanged="QueryTypeComboBox_SelectionChanged" >
+            <ComboBoxItem Content="Caml" />
+            <ComboBoxItem Content="Site Data Query" />
+        </ComboBox>
+        <Border BorderBrush="Black" BorderThickness="1" CornerRadius="5"   Grid.Row="3">
+            <Border BorderBrush="#55FFFFFF" BorderThickness="1" CornerRadius="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200" MaxWidth="400" MinWidth="150" />
+                        <ColumnDefinition Width="5" />
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <!--<StackPanel Grid.Column="0" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Visible" CanVerticallyScroll="True" >-->
+                        <Controls:ProgressRing x:Name="BusyTreeview" IsActive="True" Visibility="Hidden" Grid.Row="0" />
+                        <Grid Grid.Row="1" HorizontalAlignment="Stretch" >
+                            <Border BorderBrush="Black" BorderThickness="0,1,0,0" Width="auto"/>
+                            <CheckBox x:Name="ShowHiddenField" Content="Show Hidden fields" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                        </Grid>
+
+
+                        <TreeView Name="tree" Width="auto" Height="auto"  ItemsSource="{Binding SharePointViewModels}" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Visible" Grid.Row="2" >
+                            <TreeView.ItemContainerStyle>
+                                <!-- This Style binds a TreeViewItem to a TreeViewItemViewModel. -->
+                                <Style TargetType="{x:Type TreeViewItem}">
+                                    <Setter Property="IsExpanded" Value="True" />
+                                    <!--<Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />-->
+                                    <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                                    <Setter Property="FontWeight" Value="Normal" />
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="FontWeight" Value="Bold" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TreeView.ItemContainerStyle>
+
+                            <TreeView.Resources>
+                                <HierarchicalDataTemplate 
+                                DataType="{x:Type vm:SharePointViewModel}" ItemsSource="{Binding ListViewModels}">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding SiteUrl}" />
+                                    </StackPanel>
+                                </HierarchicalDataTemplate>
+
+                                <HierarchicalDataTemplate 
+                                DataType="{x:Type vm:ListViewModel}" >
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Width="16" Height="16" Margin="3,0" Source="Images\sharepointfoundation16.png" />
+                                        <TextBlock Text="{Binding Title}" />
+                                    </StackPanel>
+                                </HierarchicalDataTemplate>
+
+                            </TreeView.Resources>
+                        </TreeView>
+                    </Grid>
+                    <!--</StackPanel>-->
+
+
+                    <GridSplitter HorizontalAlignment="Right" 
+                                  VerticalAlignment="Stretch" 
+                                  Grid.Column="1" ResizeBehavior="PreviousAndNext"
+                                  Width="5" Background="#FFBCBCBC"/>
+
+                    <Grid x:Name="test" Grid.Column="2" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="5" />
+                            <RowDefinition Height="350" />
+                        </Grid.RowDefinitions>
+                        <Border x:Name="ChildControlsBorder" CornerRadius="3" Margin="1" Grid.Row="0" BorderBrush="Ivory" BorderThickness="1" ScrollViewer.CanContentScroll="True">
+                            <Grid>
+                                <TabControl x:Name="QueryClauseTabControl" Margin="0,0,0,0" Grid.Column="1" SelectionChanged="QueryClauseTabControl_SelectionChanged" ScrollViewer.CanContentScroll="True" >
+                                    <TabItem Header="ViewFields">
+                                        <Grid>
+                                            <!--<Grid.RowDefinitions>
+                                                <RowDefinition Height="30" />
+                                                <RowDefinition Height="auto" />
+                                            </Grid.RowDefinitions>
+                                            <CheckBox   x:Name="ViewfieldsOnly" Margin="5" Foreground="#DBE5E9" FlowDirection="LeftToRight" IsChecked="False" 
+                                                        VerticalAlignment="Center" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+                                                        Content="View fields only" Click="ViewFieldsOnly_Click"  Background="SlateGray" Grid.Row="0" />-->
+                                            <Grid x:Name="ViewfieldsGrid" Margin="0,0,0,29"  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+                                        </Grid>
+                                    </TabItem>
+                                    <TabItem Header="Order By">
+                                        <Grid x:Name="OrderByGrid" />
+                                    </TabItem>
+                                    <TabItem Header="Group By">
+                                        <Grid x:Name="GroupByGrid" />
+                                    </TabItem>
+                                    <TabItem Header="Where">
+                                        <Grid x:Name="WhereGrid" />
+                                    </TabItem>
+                                    <TabItem Header="Query Options" >
+                                        <Grid x:Name="QueryOptionsGrid" HorizontalAlignment="Left" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <controls:QueryOptionsControl x:Name="QueryOptionsControl" ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="0" Height="auto" />
+                                        </Grid>
+                                    </TabItem>
+                                    <TabItem Header="Test" Padding="10,0,10,0">
+                                        <Grid x:Name="TestGrid">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" />
+                                                <RowDefinition Height="30" />
+                                            </Grid.RowDefinitions>
+                                            <DataGrid x:Name="TestResultsGrid" Grid.Row="0"/>
+                                            <StackPanel Orientation="Horizontal" Grid.Row="1">
+                                                <Label x:Name="RowCountLabel" Content="# rows in result set:" Width="120" Foreground="Black" />
+                                                <TextBlock x:Name="RowCountTextBlock" Width="100" Margin="0,5,0,0" />
+                                            </StackPanel>
+                                        </Grid>
+                                    </TabItem>
+                                </TabControl>
+                            </Grid>
+                        </Border>
+
+                        <GridSplitter Grid.Row="1" ResizeBehavior="PreviousAndNext" VerticalAlignment="Stretch"
+                                      HorizontalAlignment="Stretch" 
+                                      Background="#FFBCBCBC"/>
+                        <Grid x:Name="CodeSnippetsGrid" Grid.Row="2">
+                            <TabControl x:Name="CodeSnippets" TabStripPlacement="Left" SelectionChanged="TabControl_SelectionChanged"  >
+                                <TabItem x:Name="Caml" Header="Caml" >
+                                    <TabItem.Content>
+                                        <TextBox x:Name="CAMLTextBlock" BorderBrush="Transparent" TextWrapping="Wrap" AcceptsReturn="True" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="caml query" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" />
+                                    </TabItem.Content>
+                                </TabItem>
+                                <TabItem x:Name="ServerOM" Header="Server OM"  >
+                                    <TabItem.Content>
+                                        <TextBox x:Name="ServerOmTextBlock" BorderBrush="Transparent" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    </TabItem.Content>
+                                </TabItem>
+                                <TabItem x:Name="CSOM" Header="CSOM .NET"  >
+                                    <TabItem.Content>
+                                        <TextBox x:Name="CsomNetTextBlock" BorderBrush="Transparent" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    </TabItem.Content>
+                                </TabItem>
+                                <TabItem x:Name="CSOMRest" Header="CSOM Rest">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="30" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <StackPanel Orientation="Horizontal" Grid.Row="0" >
+                                            <RadioButton x:Name="JsonRadioButton" Content="Json" Margin="5" GroupName="RestGroup" IsChecked="True" Checked="JsonRadioButton_Checked" />
+                                            <RadioButton x:Name="AtomRadioButton" Content="Atom" Margin="5" GroupName="RestGroup" Checked="AtomRadioButton_Checked" />
+                                        </StackPanel>
+                                        <TextBox x:Name="CsomRestTextBlock" Grid.Row="1" BorderBrush="Transparent" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    </Grid>
+                                </TabItem>
+                                <TabItem x:Name="WebServices" Header="Web services" >
+                                    <TextBox x:Name="WebServicesTextBlock" BorderBrush="Transparent" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                </TabItem>
+                                <TabItem x:Name="Powershell" Header="Powershell" >
+                                    <TextBox x:Name="PowershellBlock" BorderBrush="Transparent" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                </TabItem>
+                                <TabItem x:Name="Debug" Header="Debug"  Visibility="Hidden">
+                                    <TextBox x:Name="DebugBlock" BorderBrush="Transparent" TextWrapping="NoWrap"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                </TabItem>
+                                <TabItem x:Name="LINQ" Header="LINQ" Visibility="Hidden">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="30" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                        <StackPanel Orientation="Horizontal" Grid.Row="0" >
+                                            <CheckBox x:Name="WithLambaExpression" Content="With Lambda Expression" IsChecked="False" Checked="WithLambaExpression_Checked" />
+                                        </StackPanel>
+                                        <TextBox x:Name="LINQText" Grid.Row="1" BorderBrush="Transparent" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                                    </Grid>
+                                </TabItem>
+                            </TabControl>
+
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Border>
+    </Grid>
+</UserControl>

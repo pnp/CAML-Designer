@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="CamlDesigner2013.Settings.UI.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:Help="clr-namespace:CamlDesigner2013.Help.UI"
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:UI="clr-namespace:CamlDesigner2013.Settings.UI"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.AnimatedSingleRowTabControl.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseDark.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/CamlDesigner2013;component/Styles/Accents.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Width="300">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <TabControl Margin="0,0,0,0" VerticalContentAlignment="Top" Grid.Row="0" 
+				HorizontalContentAlignment="Stretch">
+            <TabItem Header="{DynamicResource SettingswindowGeneral}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="auto" />
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Button x:Name="ClearHistory" Content="{DynamicResource SettingswindowClearHistory}" Margin="5,10,5,10"   />
+                    </Grid>
+
+                    <GroupBox Header="Languages"  Grid.Row="1" Foreground="White" Margin="10,10,10,10">
+                        <StackPanel Margin="10,10,10,10">
+                            <CheckBox x:Name="OverruleLanguage" Content="Overrule dynamic multilingual" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Checked="OverruleLanguage_Checked" Unchecked="OverruleLanguage_Unchecked" />
+                            <StackPanel x:Name="ChooseLanguage" Visibility="Collapsed">
+                                <TextBlock Text="Please select a default language:" Padding="5,15,5,5" />
+                                <ComboBox Text="Please select a default language:" x:Name="Languages" SelectionChanged="Languages_SelectionChanged"    >
+                                    <ComboBoxItem Content="English" Tag="en-US" />
+                                    <ComboBoxItem Content="Dutch" Tag="nl-NL" />
+                                </ComboBox>
+                            </StackPanel>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <GroupBox Header="Debug Info"  Grid.Row="2" Foreground="White" Margin="10,10,10,10">
+                        <StackPanel Margin="10,10,10,10">
+                            <Controls:ToggleSwitch x:Name="Debug" Header="Show Debug Info" Margin="0,0,20,5" Checked="Debug_Checked" Unchecked="Debug_Unchecked"/>
+                            <Button x:Name="OpenLogFileLocation" Content="{DynamicResource OpenLogFileDirectory}" Margin="5,10,5,10"   />
+                        </StackPanel>
+                    </GroupBox>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="{DynamicResource SettingswindowDisplay}">
+                <Grid>
+                    <StackPanel>
+                        <Controls:ToggleSwitch x:Name="Light" Header="Light" Margin="0,0,20,5" Checked="Light_Checked"/>
+                        <Controls:ToggleSwitch x:Name="Dark" Header="Dark" Margin="0,0,20,5" Checked="Dark_Checked" />
+                        <StackPanel x:Name="LightPanel"  Margin="60">
+                            <ComboBox x:Name="Color" Background="Transparent" DropDownClosed="Color_DropDownClosed">
+                                <ComboBoxItem Content="Red" />
+                                <ComboBoxItem Content="Blue" />
+                                <ComboBoxItem Content="Green" />
+                                <ComboBoxItem Content="Purple" />
+                                <ComboBoxItem Content="Orange" />
+                            </ComboBox>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>
