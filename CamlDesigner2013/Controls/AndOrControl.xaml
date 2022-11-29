@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="CamlDesigner2013.Controls.AndOrControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             Width="355" Height="40">
+    <Canvas Name="AndOrCanvas" HorizontalAlignment="Center" Width="455" Height="40" MouseLeftButtonDown="Canvas_MouseLeftButtonDown">
+        <Canvas.Triggers>
+            <EventTrigger RoutedEvent="Canvas.MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation 
+                              Duration="0:0:0.5" From="0.0" To="0.3" 
+                              Storyboard.TargetProperty="(Opacity)"
+                              Storyboard.TargetName="OverlayRectangle"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="Canvas.MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <DoubleAnimation 
+                              Duration="0:0:0.5" From="0.3" To="0.0" 
+                              Storyboard.TargetProperty="(Opacity)"
+                              Storyboard.TargetName="OverlayRectangle"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Canvas.Triggers>
+
+        <Rectangle x:Name="OverlayRectangle" Canvas.Top="0" Canvas.Left="0" Width="455" Height="40" Fill="AliceBlue" Opacity="0.0" />
+
+        <!-- And button-->
+        <Rectangle x:Name="AndRectangle" Canvas.Top="0" Canvas.Left="0" Width="455" Height="40">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#BCC7D8" Offset="0"/>
+                    <GradientStop Color="#4D6082" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <!-- Or button-->
+        <Rectangle x:Name="OrRectangle" Canvas.Top="0" Canvas.Left="0" Width="455" Height="40" Visibility="Collapsed">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#BCC7D8" Offset="0"/>
+                    <GradientStop Color="#4D6082" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <TextBlock x:Name="AndOrTextBlock" Canvas.Top="15" Canvas.Left="0" Width="455" TextAlignment="Center" Foreground="White" Text="And" />
+    </Canvas>
+</UserControl>

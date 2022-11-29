@@ -1,0 +1,95 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="MainWindowSettings">SETTINGS</system:String>
+    <system:String x:Key="MainWindowHelp">HELP</system:String>
+    <system:String x:Key="MainWindowConnection">CONNECTION</system:String>
+    <system:String x:Key="MainWindowRefreshTooltip">Refresh all</system:String>
+    <system:String x:Key="MainWindowUpdateTooltip">Check online for update</system:String>
+    <system:String x:Key="MainWindowTwitter">Follow us</system:String>
+    <system:String x:Key="MainWindowTitle">CAML Designer 2013 - ENG</system:String>
+    <system:String x:Key="SettingsWindowTitle">settings</system:String>
+    <system:String x:Key="SettingswindowGeneral">general</system:String>
+    <system:String x:Key="SettingswindowDisplay">display</system:String>
+    <system:String x:Key="SettingswindowClearHistory">Clear history</system:String>
+    <system:String x:Key="OpenLogFileDirectory">Open log file dir</system:String>
+    
+    <system:String x:Key="ConnectionsWindowRecent">Recent</system:String>
+    <system:String x:Key="ConnectionsWindowServerOM">Server OM</system:String>
+    <system:String x:Key="ConnectionsWindowClientOM">Client OM</system:String>
+    <system:String x:Key="ConnectionsWindowWebServices">Web Services</system:String>
+    <system:String x:Key="ConnectionsWindowCurrentCredentials">Current Credentials</system:String>
+    <system:String x:Key="ConnectionsWindowUsername">Username</system:String>
+    <system:String x:Key="ConnectionsWindowPassword">Enter Password</system:String>
+    <system:String x:Key="ConnectionsWindowDomain">Domain</system:String>
+    <system:String x:Key="ConnectionsWindowConnect">Connect</system:String>
+    <system:String x:Key="ConnectionsWindowCodeBehindServerOMTooltip">Microsoft.SharePoint assembly isn't found, server object not supported!</system:String>
+    <system:String x:Key="ConnectionsWindowEmtpyUrlMsgBoxTitle">Insufficient data</system:String>
+    <system:String x:Key="ConnectionsWindowEmtpyUrlMsgBoxMessage">Please, fill out the URL to your SharePoint site.</system:String>
+    <system:String x:Key="ConnectionsWindowInvalidUrlMsgBoxMessage">Check the URL to your SharePoint site it seems incorrect.</system:String>
+    <system:String x:Key="ConnectionsWindowInvalidCredentialsMsgBoxMessage">Please, check the credentials to your SharePoint site they seem incorrect.</system:String>
+
+
+    <system:String x:Key="DragDropArrowTooltip">You can select the field on the left and drag it to the right.</system:String>
+
+    <system:String x:Key="ConnectionsWindowConnectAlertTitle">Insufficient data</system:String>
+    <system:String x:Key="ConnectionsWindowConnectAlertMessage">Insufficient data</system:String>
+    <system:String x:Key="ConnectionsWindowConnectButtonTooltipCCOn">Click to connect to the site:</system:String>
+    <system:String x:Key="ConnectionsWindowConnectButtonTooltipCCOff">Your credentials will be saved also..</system:String>
+    <system:String x:Key="SP2007Version">SharePoint 2007</system:String>
+    <system:String x:Key="SP2010Version">SharePoint 2010</system:String>
+    <system:String x:Key="SP2013Version">SharePoint 2013</system:String>
+    <system:String x:Key="SP2016Version">SharePoint 2016</system:String>
+    <system:String x:Key="O365Version">Office 365</system:String>
+    <system:String x:Key="ConnectionTileTooltip">Current credentials will be used \r\n URL:</system:String>
+    
+    <system:String x:Key="DataTypeTextControlUniqueValues">Enforce unique values:</system:String>
+    <system:String x:Key="DataTypeTextControlEnforceUniqueValues">Yes</system:String>
+    <system:String x:Key="DataTypeTextControlNotEnforceUniqueValues">No</system:String>
+    <system:String x:Key="DataTypeTextControlMaxNumberOfChararcters">Max number of characters:</system:String>
+
+    <system:String x:Key="FieldControlMessageTextBlock">Separate values with a + sign, ex: titel 1+title 2+titel 3</system:String>
+    <system:String x:Key="FieldControlDateFieldToday">Today</system:String>
+    <system:String x:Key="FieldControlDateFieldSpecificDate">Specific date</system:String>
+    <system:String x:Key="FieldControlDateFieldOffSet"> Add an offset to today</system:String>
+    <system:String x:Key="FieldControlDateFieldOffSetTextBlock"> days</system:String>
+    <system:String x:Key="FieldControlDateFieldIncludeTime">Include Time Value</system:String>
+    <system:String x:Key="FieldControlDateFieldTimeLabelFormat">Format: xx:xx:xx</system:String>
+    <system:String x:Key="FieldControlLookupCheckBox">Query by ID</system:String>
+
+    <system:String x:Key="FieldControlCurrentUser">Current user</system:String>
+    <system:String x:Key="FieldControlSpecificUser">Specific user</system:String>
+    <system:String x:Key="FieldControlMembership">Membership</system:String>
+    <system:String x:Key="FieldControlManagedMetadataWarning">No terms found for managed metadata field {0} with group {1} and term set id {2}</system:String>
+    
+    <system:String x:Key="OperatorControlEqual">Equal</system:String>
+    <system:String x:Key="OperatorControlNotEqual">Not equal</system:String>
+    <system:String x:Key="OperatorControlGreaterThan">Greater than</system:String>
+    <system:String x:Key="OperatorControlGreaterThanEqual">Greater than or equal</system:String>
+    <system:String x:Key="OperatorControlLessThan">Less than</system:String>
+    <system:String x:Key="OperatorControlLessThanEqual">Less than or equal</system:String>
+    <system:String x:Key="OperatorControlIsNull">Is null</system:String>
+    <system:String x:Key="OperatorControlIsNotNull">Is not null</system:String>
+    <system:String x:Key="OperatorControlBeginsWith">Begins with</system:String>
+    <system:String x:Key="OperatorControlContains">Contains</system:String>
+    <system:String x:Key="OperatorControlIn">In</system:String>
+    <system:String x:Key="OperatorControlIncludes">Includes</system:String>
+    <system:String x:Key="OperatorControlNotIncludes">Not includes</system:String>
+
+    <system:String x:Key="QueryOptionsIncludeMandatoryColumns">Include mandatory columns</system:String>
+    <system:String x:Key="QueryOptionsRowLimit">Row limit</system:String>
+    <system:String x:Key="QueryOptionsDatesInUTC">Dates in UTC</system:String>
+    <system:String x:Key="QueryOptionsExpandUserField">Expand user field</system:String>
+    <system:String x:Key="QueryOptionsIncludeAttachmentUrls">Include attachment URLs</system:String>
+    <system:String x:Key="QueryOptionsIncludeAttachmentVersion">Include attachment version</system:String>
+    <system:String x:Key="QueryOptionsFilesAndFoldersOptions">Files and folders options</system:String>
+    <system:String x:Key="QueryOptionsFilesAndFoldersQueryAllFilesAndFoldersInRoot">Query all files and folders in root folder</system:String>
+    <system:String x:Key="QueryOptionsFilesAndFoldersQueryAllFoldersInRoot">Query all folders in root folder</system:String>
+    <system:String x:Key="QueryOptionsFilesAndFoldersQueryAllFilesInRoot">Query all files in root folder</system:String>
+    <system:String x:Key="QueryOptionsFilesAndFoldersQueryAllFilesAndFoldersAllFoldersDeep">Query all files and folders all folders deep</system:String>
+    <system:String x:Key="QueryOptionsFilesAndFoldersQueryAllFoldersAllFoldersDeep">Query all folders all folders deep</system:String>
+    <system:String x:Key="QueryOptionsFilesAndFoldersQueryAllFoldersAllFilesDeep">Query all files all folders deep</system:String>
+
+    <system:String x:Key="QueryOptionsFilesAndFoldersQuerySubFolder">Query sub folder</system:String>
+
+</ResourceDictionary>

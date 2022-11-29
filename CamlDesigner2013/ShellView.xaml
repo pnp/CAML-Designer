@@ -1,0 +1,155 @@
+﻿<Controls:MetroWindow  x:Class="CamlDesigner2013.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions" xmlns:CD="clr-namespace:CamlDesigner2013"
+        xmlns:Settings="clr-namespace:CamlDesigner2013.Settings.UI"
+        xmlns:Connections="clr-namespace:CamlDesigner2013.Connections.UI"
+        xmlns:HelpControl="clr-namespace:CamlDesigner2013.Help.UI"
+        xmlns:MDIView="clr-namespace:CamlDesigner2013.MdiView.UI"
+        mc:Ignorable="d" 
+        SnapsToDevicePixels="True"
+        x:Name="window"
+        ShowTitleBar="True"
+        Title="CamlDesigner 2013" >
+
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/CamlDesigner2013;component/Styles/Accents.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/FlatButton.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.AnimatedTabControl.xaml" />
+                <ResourceDictionary Source="Resources/Icons.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <sys:String x:Key="WindowCommandsMinimiseToolTip">Minimise</sys:String>
+            <sys:String x:Key="WindowCommandsMaximiseToolTip">Maximise</sys:String>
+            <sys:String x:Key="WindowCommandsRestoreToolTip">Restore</sys:String>
+            <sys:String x:Key="WindowCommandsCloseToolTip">Close</sys:String>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <i:Interaction.Behaviors>
+        <Behaviours:BorderlessWindowBehavior/>
+    </i:Interaction.Behaviors>
+
+    <Controls:MetroWindow.Flyouts>
+
+        <Controls:Flyout Header="{DynamicResource SettingsWindowTitle}" Position="Right">
+            <Settings:SettingsView x:Name="SettingsView" />
+        </Controls:Flyout>
+        <Controls:Flyout Header="Connections" Position="Right" Background="#9f000000"  >
+            <Connections:ConnectionView x:Name="Connections" />
+        </Controls:Flyout>
+        <Controls:Flyout Header="Help" Position="Right" Background="#9f000000" >
+            <!--<HelpControl:HelpView x:Name="help" />-->
+        </Controls:Flyout>
+    </Controls:MetroWindow.Flyouts>
+
+
+
+    <Grid Margin="0" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" MinHeight="58" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!--d:LayoutOverrides="Width"-->
+        <Grid x:Name="header" Background="Transparent" Grid.Row="0">
+            <TextBlock TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="20.667" Margin="30,10,0,0"><Run Text="{DynamicResource MainWindowTitle}"/></TextBlock>
+
+            <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10,5,100,0" Orientation="Horizontal"  >
+                <Grid x:Name="UpdateGrid" Margin="0,0,10,0">
+                    <Button x:Name="btnUpdate"  Style="{DynamicResource ChromelessButtonStyle}" FontSize="10.667" FontWeight="Bold" Click="btnUpdate_Click"  >
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Width="20" Height="20" ToolTip="{DynamicResource MainWindowUpdateTooltip}" >
+                                <Rectangle.Resources>
+                                    <SolidColorBrush x:Key="BlackBrush" Color="Black" />
+                                </Rectangle.Resources>
+                                <Rectangle.Fill>
+                                    <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_browser_wire}" />
+                                </Rectangle.Fill>
+                            </Rectangle>
+                        </StackPanel>
+                    </Button>
+                </Grid>
+                <TextBlock Margin="0,0,10,0" ><Run Text="|"/></TextBlock>
+
+                <Grid x:Name="ExecuteGrid" Margin="0,0,10,0">
+                    <Button x:Name="btnExecute"  Style="{DynamicResource ChromelessButtonStyle}" FontSize="10.667" FontWeight="Bold"  Click="btnExecute_Click"  >
+                    <StackPanel Orientation="Horizontal">
+
+                        <Rectangle Width="20" Height="20" ToolTip="Execute">
+                            <Rectangle.Resources>
+                                <SolidColorBrush x:Key="BlackBrush" Color="Black" />
+                            </Rectangle.Resources>
+                            <Rectangle.Fill>
+                                <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_play}" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </StackPanel>
+                </Button>
+        </Grid>
+        <TextBlock Margin="0,0,10,0" ><Run Text="|"/></TextBlock>
+                <Button x:Name="btnRefresh"  Style="{DynamicResource ChromelessButtonStyle}" FontSize="10.667" FontWeight="Bold" Click="btnRefresh_Click"  >
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Width="20" Height="20" ToolTip="{DynamicResource MainWindowRefreshTooltip}" >
+                            <Rectangle.Resources>
+                                <SolidColorBrush x:Key="BlackBrush" Color="Black" />
+                            </Rectangle.Resources>
+                            <Rectangle.Fill>
+                                <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_refresh}" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </StackPanel>
+                </Button>
+
+                <TextBlock Margin="10,0"><Run Text="|"/></TextBlock>
+
+                <Button Style="{DynamicResource ChromelessButtonStyle}" FontSize="10.667" FontWeight="Bold" x:Name="btnTwitter" Click="btnTwitter_Click" >
+                    <StackPanel Orientation="Horizontal">
+                        <Rectangle Width="20" Height="20">
+                            <Rectangle.Resources>
+                                <SolidColorBrush x:Key="BlackBrush" Color="Black" />
+                            </Rectangle.Resources>
+                            <Rectangle.Fill>
+                                <VisualBrush Stretch="Fill" Visual="{StaticResource appbar_twitter_bird}" />
+                            </Rectangle.Fill>
+                        </Rectangle>
+                        <TextBlock Text="{DynamicResource MainWindowTwitter}" FontSize="10.667" FontWeight="Bold"  />
+                    </StackPanel>
+                </Button>
+                <TextBlock Margin="10,0"><Run Text="|"/></TextBlock>
+                <Button Content="{DynamicResource MainWindowConnection}" Style="{DynamicResource ChromelessButtonStyle}" FontSize="10.667" FontWeight="Bold" Click="ConnectionsClick" />
+
+                <TextBlock Margin="10,0"><Run Text="|"/></TextBlock>
+                <Button Content="{DynamicResource MainWindowSettings}" Style="{DynamicResource ChromelessButtonStyle}" FontSize="10.667" FontWeight="Bold" Click="SettingsClick" />
+
+                <TextBlock Margin="10,0"><Run Text="|"/></TextBlock>
+                <Button Content="{DynamicResource MainWindowHelp}" Style="{DynamicResource ChromelessButtonStyle}" FontSize="10.667" FontWeight="Bold" Margin="0,0,20,0" Click="HelpClick">
+
+                </Button>
+                <!--<Button Click="ButtonMinimiseOnClick" ToolTip="{DynamicResource WindowCommandsMinimiseToolTip}" Style="{DynamicResource ChromelessButtonStyle}" Content="0" FontFamily="Marlett" />
+                <Button Click="ButtonMaxRestoreOnClick" ToolTip="{DynamicResource WindowCommandsMaximiseToolTip}" x:Name="maxRestore" Style="{DynamicResource ChromelessButtonStyle}" Content="1" FontFamily="Marlett" />
+                <Button x:Name="TryClose" ToolTip="{DynamicResource WindowCommandsCloseToolTip}" Style="{DynamicResource ChromelessButtonStyle}" Content="r" FontFamily="Marlett" />-->
+            </StackPanel>
+            <Rectangle HorizontalAlignment="Left" Stroke="Black" Width="10" StrokeThickness="0" Margin="0,10,0,0">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="{DynamicResource HighlightDarkColor}" />
+                </Rectangle.Fill>
+            </Rectangle>
+        </Grid>
+        <MDIView:MdiView x:Name="MdiView" Grid.Row="1" Margin="5,10,5,10" />
+        <Rectangle x:Name="settingsShadow" Fill="#3F000000" Stroke="Black" StrokeThickness="0" Visibility="Collapsed" Grid.RowSpan="2"/>
+    </Grid>
+</Controls:MetroWindow >

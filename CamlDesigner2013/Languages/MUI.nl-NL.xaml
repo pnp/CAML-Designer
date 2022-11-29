@@ -1,0 +1,94 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="MainWindowHelp">HELP</system:String>
+    <system:String x:Key="MainWindowSettings">INSTELLINGEN</system:String>
+    <system:String x:Key="MainWindowConnection">VERBINDING</system:String>
+    <system:String x:Key="MainWindowRefreshTooltip">refresh de lijst</system:String>
+    <system:String x:Key="MainWindowUpdateTooltip">Check online voor update</system:String>
+    <system:String x:Key="MainWindowTwitter"> VOLG ONS </system:String>
+    <system:String x:Key="MainWindowTitle">CAML Designer 2013 - NL</system:String>
+    <system:String x:Key="SettingsWindowTitle">instellingen</system:String>
+    <system:String x:Key="SettingswindowGeneral">algemeen</system:String>
+    <system:String x:Key="SettingswindowDisplay">display</system:String>
+    <system:String x:Key="SettingswindowClearHistory">History wissen</system:String>
+    <system:String x:Key="OpenLogFileDirectory">Open log file dir</system:String>
+    <system:String x:Key="ConnectionsWindowRecent">Recent</system:String>
+    <system:String x:Key="ConnectionsWindowServerOM">Server OM</system:String>
+    <system:String x:Key="ConnectionsWindowClientOM">Client OM</system:String>
+    <system:String x:Key="ConnectionsWindowWebServices">Web Services</system:String>
+    <system:String x:Key="ConnectionsWindowCurrentCredentials">Huidige Credentials</system:String>
+    <system:String x:Key="ConnectionsWindowUsername">Gebruikersnaam</system:String>
+    <system:String x:Key="ConnectionsWindowPassword">Vul wachtwoord in</system:String>
+    <system:String x:Key="ConnectionsWindowDomain">Domein</system:String>
+    <system:String x:Key="ConnectionsWindowConnect">Maak verbinding</system:String>
+    <system:String x:Key="ConnectionsWindowCodeBehindServerOMTooltip">Microsoft.SharePoint assembly niet gevonden, Server object model wordt momenteel niet ondersteund!</system:String>
+    <system:String x:Key="ConnectionsWindowEmtpyUrlMsgBoxTitle">Onvoldoende gegevens</system:String>
+    <system:String x:Key="ConnectionsWindowEmtpyUrlMsgBoxMessage">Gelieve de url in te geven van uw SharePoint Site.</system:String>
+    <system:String x:Key="ConnectionsWindowInvalidUrlMsgBoxMessage">Gelieve de url na te kijiken van uw SharePoint Site, deze is onjuist</system:String>
+    <system:String x:Key="ConnectionsWindowInvalidCredentialsMsgBoxMessage">Gelieve de gebruikersnaam en wachtwoord nakijken, deze zijn niet juist.</system:String>
+
+    <system:String x:Key="DragDropArrowTooltip">U kan het veld links slepen naar de rechter listbox.</system:String>
+
+
+    <system:String x:Key="ConnectionsWindowConnectAlertTitle">Onvoldoende data</system:String>
+    <system:String x:Key="ConnectionsWindowConnectAlertMessage">Onvoldoende data</system:String>
+    <system:String x:Key="ConnectionsWindowConnectButtonTooltipCCOn">Hier klikken om een verbinding te maken de site:</system:String>
+    <system:String x:Key="ConnectionsWindowConnectButtonTooltipCCOff">Uw gegevens worden opgeslagen..</system:String>
+    <system:String x:Key="SP2007Version">SharePoint 2007</system:String>
+    <system:String x:Key="SP2010Version">SharePoint 2010</system:String>
+    <system:String x:Key="SP2013Version">SharePoint 2013</system:String>
+    <system:String x:Key="SP2016Version">SharePoint 2016</system:String>
+    <system:String x:Key="O365Version">Office 365</system:String>
+    <system:String x:Key="ConnectionTileTooltip">Huidige credentials worden gebruikt voor \r\n URL:</system:String>
+
+    <system:String x:Key="DataTypeTextControlUniqueValues">Uitsluitend unieke waardes gebruiken:</system:String>
+    <system:String x:Key="DataTypeTextControlEnforceUniqueValues">Ja</system:String>
+    <system:String x:Key="DataTypeTextControlNotEnforceUniqueValues">Nee</system:String>
+    <system:String x:Key="DataTypeTextControlMaxNumberOfChararcters">Maximum aantal characters:</system:String>
+
+    <system:String x:Key="FieldControlMessageTextBlock">Gelieve de waardes te verdelen met het + teken:bv: titel1+titel2+titel3</system:String>
+    <system:String x:Key="FieldControlDateFieldToday">Vandaag</system:String>
+    <system:String x:Key="FieldControlDateFieldSpecificDate">Specifieke datum</system:String>
+    <system:String x:Key="FieldControlDateFieldOffSet">Voeg een offset toe vanaf vandaag</system:String>
+    <system:String x:Key="FieldControlDateFieldOffSetTextBlock">dagen</system:String>
+    <system:String x:Key="FieldControlDateFieldIncludeTime">Inclusief tijd</system:String>
+    <system:String x:Key="FieldControlDateFieldTimeLabelFormat">Formaat: xx:xx:xx</system:String>
+    <system:String x:Key="FieldControlLookupCheckBox">Query adhv ID</system:String>
+
+    <system:String x:Key="FieldControlCurrentUser">Huidige gebruiker</system:String>
+    <system:String x:Key="FieldControlSpecificUser">Specifieke gebruiker</system:String>
+    <system:String x:Key="FieldControlMembership">Membership</system:String>
+    <system:String x:Key="FieldControlManagedMetadataWarning">Er zijn geen terms gevonden voor managed metadata veld {0} met groep {1} en term set ID {2}</system:String>
+
+    <system:String x:Key="OperatorControlEqual">Gelijk</system:String>
+    <system:String x:Key="OperatorControlNotEqual">Niet gelijk</system:String>
+    <system:String x:Key="OperatorControlGreaterThan">Groter dan</system:String>
+    <system:String x:Key="OperatorControlGreaterThanEqual">Groter dan of gelijk aan</system:String>
+    <system:String x:Key="OperatorControlLessThan">Minder dan</system:String>
+    <system:String x:Key="OperatorControlLessThanEqual">Minder dan of gelijk aan</system:String>
+    <system:String x:Key="OperatorControlIsNull">Is null</system:String>
+    <system:String x:Key="OperatorControlIsNotNull">Is niet null</system:String>
+    <system:String x:Key="OperatorControlBeginsWith">Begin met</system:String>
+    <system:String x:Key="OperatorControlContains">Bevat</system:String>
+    <system:String x:Key="OperatorControlIn">In</system:String>
+    <system:String x:Key="OperatorControlIncludes">Includes</system:String>
+    <system:String x:Key="OperatorControlNotIncludes">Not includes</system:String>
+
+    <system:String x:Key="QueryOptionsIncludeMandatoryColumns">Inclusief verplichte velden</system:String>
+    <system:String x:Key="QueryOptionsRowLimit">rij limiet</system:String>
+    <system:String x:Key="QueryOptionsDatesInUTC">Datum in UTC</system:String>
+    <system:String x:Key="QueryOptionsExpandUserField">Breidt user veld uit</system:String>
+    <system:String x:Key="QueryOptionsIncludeAttachmentUrls">Inclusief attachment URLs</system:String>
+    <system:String x:Key="QueryOptionsIncludeAttachmentVersion">Inclusief attachment versie</system:String>
+    <system:String x:Key="QueryOptionsFilesAndFoldersOptions">Files en folders opties</system:String>
+    <system:String x:Key="QueryOptionsFilesAndFoldersQueryAllFilesAndFoldersInRoot">Query alle files en folders in root folder</system:String>
+    <system:String x:Key="QueryOptionsFilesAndFoldersQueryAllFoldersInRoot">Query alle folders in root folder</system:String>
+    <system:String x:Key="QueryOptionsFilesAndFoldersQueryAllFilesInRoot">Query alle files in root folder</system:String>
+    <system:String x:Key="QueryOptionsFilesAndFoldersQueryAllFilesAndFoldersAllFoldersDeep">Query alle files en folders alle folders deep</system:String>
+    <system:String x:Key="QueryOptionsFilesAndFoldersQueryAllFoldersAllFoldersDeep">Query alle folders alle folders deep</system:String>
+    <system:String x:Key="QueryOptionsFilesAndFoldersQueryAllFoldersAllFilesDeep">Query alle files alle folders deep</system:String>
+
+    <system:String x:Key="QueryOptionsFilesAndFoldersQuerySubFolder">Query sub folder</system:String>
+
+</ResourceDictionary>

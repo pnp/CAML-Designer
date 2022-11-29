@@ -1,0 +1,163 @@
+﻿<Application x:Class="CamlDesigner2013.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="ShellView.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <!-- Brushes. -->
+            <SolidColorBrush x:Key="CloseButtonBackgroundBrush" Color="#FF2136C2"/>
+            <SolidColorBrush x:Key="CloseButtonBorderBrush" Color="#FF000000"/>
+            <SolidColorBrush x:Key="CloseButtonFocusBorderBrush" Color="#FFFFFFFF"/>
+            <SolidColorBrush x:Key="CloseButtonMouseOverBrush" Color="#5AFFFFFF"/>
+            <SolidColorBrush x:Key="CloseButtonPressedBackgroundBrush" Color="#FF172588"/>
+            <SolidColorBrush x:Key="CloseButtonPressedHighlightBrush" Color="#2BA5A5A5"/>
+            <SolidColorBrush x:Key="CloseButtonShineBrush" Color="#3FFFFFFF"/>
+            <SolidColorBrush x:Key="MessageBoxBackgroundBrush" Color="#FF214F18"/>
+            <SolidColorBrush x:Key="MessageBoxBorderBrush" Color="#FFFFFFFF"/>
+            <LinearGradientBrush x:Key="MessageBoxHeaderBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF214F18" Offset="0"/>
+                <GradientStop Color="#FF20361C" Offset="1"/>
+            </LinearGradientBrush>
+            <SolidColorBrush x:Key="MessageBoxTitleBrush" Color="White" />
+
+            <!-- Styles. -->
+            <Style x:Key="MessageBoxTitle" TargetType="{x:Type Label}">
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Foreground" Value="{DynamicResource MessageBoxTitleBrush}" />
+            </Style>
+
+            <Path x:Key="CloseButtonPath"
+	          Data="M1,1 L7.4999998,7.334 M7.4999998,1 L0.99999997,7.334"
+	          Stretch="Fill"
+	          Stroke="White"
+	          StrokeEndLineCap="Round"
+	          StrokeStartLineCap="Round"
+	          StrokeThickness="2" />
+            <Style x:Key="CloseButton" TargetType="{x:Type Button}">
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Height" Value="18" />
+                <Setter Property="HorizontalAlignment" Value="Center" />
+                <Setter Property="IsCancel" Value="True" />
+                <Setter Property="SnapsToDevicePixels" Value="True" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.5*" />
+                                    <RowDefinition Height="0.5*" />
+                                </Grid.RowDefinitions>
+                                <Border x:Name="border"
+	                                Background="{DynamicResource CloseButtonBackgroundBrush}"
+	                                BorderBrush="{DynamicResource CloseButtonBorderBrush}"
+	                                BorderThickness="1"
+	                                CornerRadius="3"
+	                                Grid.RowSpan="2"
+	                                SnapsToDevicePixels="True" />
+                                <ContentPresenter x:Name="content"
+	                                          Grid.RowSpan="2"
+	                                          HorizontalAlignment="Center"
+	                                          Margin="{TemplateBinding Padding}"
+	                                          SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+	                                          VerticalAlignment="Center" />
+                                <Border x:Name="highlight"
+	                                Background="{DynamicResource CloseButtonShineBrush}"
+	                                BorderThickness="0"
+	                                CornerRadius="2"
+	                                Margin="2,2,2,0"
+	                                SnapsToDevicePixels="True" />
+                                <Border x:Name="mouseOver"
+	                                Background="{DynamicResource CloseButtonMouseOverBrush}"
+	                                BorderThickness="0"
+	                                CornerRadius="2"
+	                                Opacity="0"
+	                                SnapsToDevicePixels="True" />
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter Property="Opacity" TargetName="highlight" Value="1"/>
+                                </Trigger>
+                                <Trigger Property="IsKeyboardFocused" Value="true">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource CloseButtonFocusBorderBrush}"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="true">
+                                    <Setter Property="Grid.Row" TargetName="highlight" Value="1"/>
+                                    <Setter Property="Margin" TargetName="highlight" Value="2,0,2,2"/>
+                                    <Setter Property="Background" TargetName="border" Value="{DynamicResource CloseButtonPressedBackgroundBrush}"  />
+                                    <Setter Property="Background" TargetName="highlight" Value="{DynamicResource CloseButtonPressedHighlightBrush}"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="Width" Value="18" />
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Foreground" Value="Black" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="MessageBox" TargetType="{x:Type Window}">
+                <Setter Property="Margin" Value="5" />
+                <Setter Property="ResizeMode" Value="NoResize" />
+                <Setter Property="WindowStyle" Value="None" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Window}">
+                            <Border BorderThickness="1" Background="{DynamicResource MessageBoxBackgroundBrush}" BorderBrush="{DynamicResource MessageBoxBorderBrush}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30" />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid x:Name="PART_Title">
+                                        <Grid.Background>
+                                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                <GradientStop Color="#FF214F18" Offset="0"/>
+                                                <GradientStop Color="#FF20361C" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Grid.Background>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition Width="30" />
+                                        </Grid.ColumnDefinitions>
+                                        <Label Style="{DynamicResource MessageBoxTitle}" Content="{TemplateBinding Title}" />
+                                        <Button x:Name="PART_Close"
+                                            Content="{DynamicResource CloseButtonPath}"
+	                                        Grid.Column="1"
+	                                        Style="{DynamicResource CloseButton}"
+	                                        Padding="4" />
+                                    </Grid>
+                                    <AdornerDecorator Grid.Row="1">
+                                        <ContentPresenter Content="{TemplateBinding Content}" Margin="{TemplateBinding Margin}" />
+                                    </AdornerDecorator>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style TargetType="{x:Type Label}">
+                <Setter Property="Foreground" Value="#FFFFFFFF" />
+                <Setter Property="HorizontalAlignment" Value="Right" />
+            </Style>
+
+            <Style TargetType="{x:Type TextBox}">
+                <Setter Property="Margin" Value="0,0,0,2" />
+            </Style>
+
+            <Style TargetType="{x:Type ComboBox}">
+                <Setter Property="Margin" Value="0,0,0,2" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,10 @@
+﻿<da:DesktopAlertBase x:Class="CamlDesigner2013.Alerts.SimpleAlert"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:da="clr-namespace:DesktopAlert;assembly=DesktopAlert"
+        Title="SimpleAlert" >
+    <Grid Background="Gray">
+        <TextBlock FontSize="12" Padding="5" TextWrapping="Wrap" Foreground="White"
+                   Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=Message}"/>
+    </Grid>
+</da:DesktopAlertBase>

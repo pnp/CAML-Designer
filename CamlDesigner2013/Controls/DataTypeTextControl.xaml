@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="CamlDesigner2013.Controls.DataTypeTextControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+             xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+             mc:Ignorable="d" 
+             Width="320" Height="140"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="{DynamicResource DataTypeTextControlUniqueValues}" VerticalAlignment="Center" Foreground="#DBE5E9" />
+        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Margin="10,10,0,0">
+            <RadioButton x:Name="EnforceUniqueValuesRadioButton" Content="{DynamicResource DataTypeTextControlEnforceUniqueValues}" Foreground="#DBE5E9" />
+            <RadioButton x:Name="NotEnforceUniqueValuesRadioButton" Content="{DynamicResource DataTypeTextControlNotEnforceUniqueValues}"  Margin="10,0,0,0" Foreground="#DBE5E9" />
+        </StackPanel>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="{DynamicResource DataTypeTextControlMaxNumberOfChararcters}" VerticalAlignment="Center" Foreground="#DBE5E9" />
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="NumberOfCharactersTextBox" Width="50" Margin="10,5,0,0" HorizontalAlignment="Left" Text="255" />
+    </Grid>
+</UserControl>
