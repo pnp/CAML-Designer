@@ -16,7 +16,7 @@
         SnapsToDevicePixels="True"
         x:Name="window"
         ShowTitleBar="True"
-        Title="CamlDesigner 2013" >
+        Title="Caml Designer" >
 
 
     <Window.Resources>

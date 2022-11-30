@@ -2246,10 +2246,6 @@
     </PublishFile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BPoint.Common\BPoint.Common.csproj">
-      <Project>{4949f499-f538-4aa7-b0e6-328ca892b958}</Project>
-      <Name>BPoint.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CamlDesigner.BusinessObjects\CamlDesigner.BusinessObjects.csproj">
       <Project>{24c8211c-c591-4336-a7dd-8ed4b921be7e}</Project>
       <Name>CamlDesigner.BusinessObjects</Name>
