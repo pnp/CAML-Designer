@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E82E2CA1-DEF0-4C7A-A7F1-FFA6D163DAC0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CamlDesigner.DataAccess.SharePoint.WebServices</RootNamespace>
+    <AssemblyName>CamlDesigner.DataAccess.SharePoint.WebServices</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ListsWebServiceHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SiteDataWebServiceHelper.cs" />
+    <Compile Include="TaxonomyWebServiceHelper.cs" />
+    <Compile Include="UserGroupWebServiceHelper.cs" />
+    <Compile Include="Utilities.cs" />
+    <Compile Include="ViewsWebServiceHelper.cs" />
+    <Compile Include="Web References\ListsWebService\Reference.cs" />
+    <Compile Include="Web References\SiteDataWebService\Reference.cs" />
+    <Compile Include="Web References\TaxonomyWebService\Reference.cs" />
+    <Compile Include="Web References\UserGroupWebService\Reference.cs" />
+    <Compile Include="Web References\ViewsWebService\Reference.cs" />
+    <Compile Include="Web References\WebsWebService\Reference.cs" />
+    <Compile Include="WebServiceHelper.cs" />
+    <Compile Include="WebsWebServiceHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web References\ListsWebService\lists.disco" />
+    <Content Include="Web References\SiteDataWebService\sitedata.disco" />
+    <Content Include="Web References\TaxonomyWebService\taxonomyclientservice.disco" />
+    <Content Include="Web References\UserGroupWebService\usergroup.disco" />
+    <Content Include="Web References\ViewsWebService\views.disco" />
+    <Content Include="Web References\WebsWebService\webs.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\ListsWebService\lists.wsdl" />
+    <None Include="Web References\ListsWebService\Reference.map" />
+    <None Include="Web References\SiteDataWebService\Reference.map" />
+    <None Include="Web References\SiteDataWebService\sitedata.wsdl" />
+    <None Include="Web References\SiteDataWebService\_sFPUrl.datasource" />
+    <None Include="Web References\SiteDataWebService\_sList.datasource" />
+    <None Include="Web References\SiteDataWebService\_sListMetadata.datasource" />
+    <None Include="Web References\SiteDataWebService\_sListWithTime.datasource" />
+    <None Include="Web References\SiteDataWebService\_sProperty.datasource" />
+    <None Include="Web References\SiteDataWebService\_sSiteMetadata.datasource" />
+    <None Include="Web References\SiteDataWebService\_sWebMetadata.datasource" />
+    <None Include="Web References\SiteDataWebService\_sWebWithTime.datasource" />
+    <None Include="Web References\TaxonomyWebService\Reference.map" />
+    <None Include="Web References\TaxonomyWebService\taxonomyclientservice.wsdl" />
+    <None Include="Web References\UserGroupWebService\Reference.map" />
+    <None Include="Web References\UserGroupWebService\usergroup.wsdl" />
+    <None Include="Web References\ViewsWebService\Reference.map" />
+    <None Include="Web References\ViewsWebService\views.wsdl" />
+    <None Include="Web References\WebsWebService\CustomizedPageStatus.datasource" />
+    <None Include="Web References\WebsWebService\Reference.map" />
+    <None Include="Web References\WebsWebService\webs.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CamlDesigner.Common\CamlDesigner.Common.csproj">
+      <Project>{a3bd2373-6136-4c20-8e95-87b77307db27}</Project>
+      <Name>CamlDesigner.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,1 @@
+C:\Users\Karine\Documents\Work\CamlDesignerSPO\.NET Framework 4.x\CamlDesigner.DataAccess.WebServices\obj\Debug\CamlDesigner.DataAccess.WebServices.csprojAssemblyReference.cache

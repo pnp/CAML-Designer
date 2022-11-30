@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CamlDesigner.DataAccess.Pow
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CamlDesigner2013", "CamlDesigner2013\CamlDesigner2013.csproj", "{357C8B37-B1E4-45A5-8C4F-1DEAA4593A1F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CamlDesigner.DataAccess.WebServices", "CamlDesigner.DataAccess.WebServices\CamlDesigner.DataAccess.WebServices.csproj", "{E82E2CA1-DEF0-4C7A-A7F1-FFA6D163DAC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{357C8B37-B1E4-45A5-8C4F-1DEAA4593A1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{357C8B37-B1E4-45A5-8C4F-1DEAA4593A1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{357C8B37-B1E4-45A5-8C4F-1DEAA4593A1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E82E2CA1-DEF0-4C7A-A7F1-FFA6D163DAC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E82E2CA1-DEF0-4C7A-A7F1-FFA6D163DAC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E82E2CA1-DEF0-4C7A-A7F1-FFA6D163DAC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E82E2CA1-DEF0-4C7A-A7F1-FFA6D163DAC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
