@@ -9,4 +9,6 @@ You can connect to SharePoint Online, SharePoint 2019, SharePoint 2016 and Share
 
 The user interface is still WPF (Windows Presentation Foundation) and it deserves a fresh look. 
 
+If you want to run the source code, set the project CamlDesigner2013 as Startup project.
+
 You can find the documenation here: https://github.com/pnp/CAML-Designer/wiki
