@@ -364,11 +364,14 @@ namespace CamlDesigner2013.Connections.UI
                 SP2016Button.IsChecked = false;
 
             if (ClientOMButton != null)
+            {
                 ClientOMButton.Visibility = Visibility.Visible;
+                ClientOMButton.IsChecked = true;
+            }
+
             if (WebServicesButton != null)
                 WebServicesButton.Visibility = Visibility.Hidden;
 
-            ClientOMButton.IsChecked = true;
 
             if (CurrentCredentials != null)
             {
@@ -387,14 +390,14 @@ namespace CamlDesigner2013.Connections.UI
 
         private void ClientOMButton_Checked(object sender, RoutedEventArgs e)
         {
-
-            WebServicesButton.IsChecked = false;
+            if (WebServicesButton != null)
+                WebServicesButton.IsChecked = false;
         }
 
         private void WebServicesButton_Checked(object sender, RoutedEventArgs e)
         {
-
-            ClientOMButton.IsChecked = false;
+            if (ClientOMButton != null)
+                ClientOMButton.IsChecked = false;
         }
 
         private bool ValidateConnection(StringBuilder sb)
