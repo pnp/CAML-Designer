@@ -5,6 +5,7 @@
     using CamlDesigner.SharePoint.Objects;
     using Microsoft.SharePoint.Client;
     using Microsoft.SharePoint.Client.Taxonomy;
+    using OfficeDevPnP.Core;
     //using MSDN.Samples.ClaimsAuth;
     using System;
     using System.Collections;
@@ -1926,34 +1927,26 @@
         {
             try
             {
-                if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
+                var authManager = new AuthenticationManager();
+                // This method calls a pop up window with the login page and it also prompts  
+                // for the multi factor authentication code.  
+                clientContext = authManager.GetWebLoginClientContext(spUrl);
+
+                spWeb = clientContext.Web;
+                clientContext.Load(spWeb);
+                clientContext.ExecuteQuery();
+
+                if (!string.IsNullOrEmpty(spEcthubUrl))
                 {
-                    SecureString securePwd = ConvertToSecureString(password);
-
-                    clientContext = new ClientContext(spUrl);
-                    clientContext.Credentials = new SharePointOnlineCredentials(username, securePwd);
-
-                    // TODO: wat met two-factor authentication?
-                    //var authManager = new OfficeDevPnP.Core.AuthenticationManager();
-                    //// This method calls a pop up window with the login page and it also prompts  
-                    //// for the multi factor authentication code.  
-                    //ClientContext ctx = authManager.GetWebLoginClientContext(siteUrl); 
-                    
-                    spWeb = clientContext.Web;
-                    clientContext.Load(spWeb);
-                    clientContext.ExecuteQuery();
-
-                    if (!string.IsNullOrEmpty(spEcthubUrl))
-                    {
-                        ecthubContext = new Microsoft.SharePoint.Client.ClientContext(spEcthubUrl);
-                        clientContext.Credentials = new SharePointOnlineCredentials(username, securePwd);
-                        ecthubSiteCollection = ecthubContext.Site;
-                    }
+                    ecthubContext = new Microsoft.SharePoint.Client.ClientContext(spEcthubUrl);
+                    //ecthubContext.Credentials = new SharePointOnlineCredentials(username, securePwd);
+                    ecthubContext.Credentials = clientContext.Credentials;
+                    ecthubSiteCollection = ecthubContext.Site;
                 }
             }
             catch (Exception ex)
             {
-                // TODO: Are we using a central exception handler??? //PeterK
+                throw ex;
             }
         }
 
@@ -1976,7 +1969,7 @@
 
         private void RefreshWeb(string webUrl)
         {
-            if (this.spUrl != webUrl)
+            if (this.spUrl != webUrl || clientContext == null)
             {
                 EnsureSPOClientContext();
                 spWeb = ClientContext.Web;
