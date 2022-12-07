@@ -9,7 +9,7 @@ The current version of the CAML Designer has been recompiled against .NET Framew
 
 You can connect to SharePoint Online, SharePoint 2019, SharePoint 2016 and SharePoint 2013 through the Client Object model. For the older versions of SharePoint you have to connect through the Web Services of SharePoint. I have no old version of SharePoint anymore, so I was not able to test that part of the code.
 
-For SharePoint Online, connection with MFA is not supported yet for the time being. But that will change soon enough.
+For SharePoint Online, connection with MFA is now supported.
 
 The user interface is still WPF (Windows Presentation Foundation) and it deserves a fresh look. 
 
