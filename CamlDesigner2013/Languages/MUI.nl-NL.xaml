@@ -7,7 +7,7 @@
     <system:String x:Key="MainWindowRefreshTooltip">refresh de lijst</system:String>
     <system:String x:Key="MainWindowUpdateTooltip">Check online voor update</system:String>
     <system:String x:Key="MainWindowTwitter"> VOLG ONS </system:String>
-    <system:String x:Key="MainWindowTitle">CAML Designer 2013 - NL</system:String>
+    <system:String x:Key="MainWindowTitle">CAML Designer - NL</system:String>
     <system:String x:Key="SettingsWindowTitle">instellingen</system:String>
     <system:String x:Key="SettingswindowGeneral">algemeen</system:String>
     <system:String x:Key="SettingswindowDisplay">display</system:String>
@@ -39,7 +39,8 @@
     <system:String x:Key="SP2010Version">SharePoint 2010</system:String>
     <system:String x:Key="SP2013Version">SharePoint 2013</system:String>
     <system:String x:Key="SP2016Version">SharePoint 2016</system:String>
-    <system:String x:Key="O365Version">Office 365</system:String>
+    <system:String x:Key="SP2019Version">SharePoint 2019</system:String>
+    <system:String x:Key="O365Version">O365</system:String>
     <system:String x:Key="ConnectionTileTooltip">Huidige credentials worden gebruikt voor \r\n URL:</system:String>
 
     <system:String x:Key="DataTypeTextControlUniqueValues">Uitsluitend unieke waardes gebruiken:</system:String>
