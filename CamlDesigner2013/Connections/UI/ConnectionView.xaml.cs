@@ -228,6 +228,38 @@ namespace CamlDesigner2013.Connections.UI
             ConnectButton.ToolTip = Application.Current.Resources["ConnectionsWindowConnectButtonTooltipCCOn"].ToString() + UrlTextBox.Text;
         }
 
+        private void SP2007_Checked(object sender, RoutedEventArgs e)
+        {
+            if (O365Button != null)
+                O365Button.IsChecked = false;
+
+            if (SP2010Button != null)
+                SP2010Button.IsChecked = false;
+
+            if (SP2013Button != null)
+                SP2013Button.IsChecked = false;
+
+            if (SP2016Button != null)
+                SP2016Button.IsChecked = false;
+            
+            if (SP2019Button != null)
+                SP2019Button.IsChecked = false;
+
+            if (ClientOMButton != null)
+                ClientOMButton.Visibility = Visibility.Hidden;
+
+            if (WebServicesButton != null)
+            {
+                WebServicesButton.Visibility = Visibility.Visible;
+                WebServicesButton.IsChecked = true;
+            }
+
+            if (CurrentCredentials != null && CurrentCredentials.IsChecked.HasValue)
+            {
+                EnableConnectionSelection(CurrentCredentials.IsChecked.Value);
+            }
+        }
+
         private void SP2010_Checked(object sender, RoutedEventArgs e)
         {
             if (SP2007Button != null)
@@ -242,37 +274,18 @@ namespace CamlDesigner2013.Connections.UI
             if (SP2016Button != null)
                 SP2016Button.IsChecked = false;
 
-            ClientOMButton.Visibility = Visibility.Visible;
-            WebServicesButton.Visibility = Visibility.Visible;
-
-            ClientOMButton.IsChecked = true;
-
-            if (CurrentCredentials != null && CurrentCredentials.IsChecked.HasValue)
-            {
-                EnableConnectionSelection(CurrentCredentials.IsChecked.Value);
-            }
-        }
-
-        private void SP2007_Checked(object sender, RoutedEventArgs e)
-        {
-            if (O365Button != null)
-                O365Button.IsChecked = false;
-
-            if (SP2010Button != null)
-                SP2010Button.IsChecked = false;
-
-            if (SP2013Button != null)
-                SP2013Button.IsChecked = false;
-
-            if (SP2016Button != null)
-                SP2016Button.IsChecked = false;
+            if (SP2019Button != null)
+                SP2019Button.IsChecked = false;
 
             if (ClientOMButton != null)
-                ClientOMButton.Visibility = Visibility.Hidden;
+                ClientOMButton.Visibility = Visibility.Visible;
+
             if (WebServicesButton != null)
                 WebServicesButton.Visibility = Visibility.Visible;
 
-            WebServicesButton.IsChecked = true;
+            // set the default button
+            if (ClientOMButton != null)
+                ClientOMButton.IsChecked = true;
 
             if (CurrentCredentials != null && CurrentCredentials.IsChecked.HasValue)
             {
@@ -329,6 +342,9 @@ namespace CamlDesigner2013.Connections.UI
             if (SP2013Button != null)
                 SP2013Button.IsChecked = false;
 
+            if (SP2019Button != null)
+                SP2019Button.IsChecked = false;
+
             if (O365Button != null)
                 O365Button.IsChecked = false;
 
@@ -336,6 +352,47 @@ namespace CamlDesigner2013.Connections.UI
 
             if (ClientOMButton != null)
                 ClientOMButton.Visibility = Visibility.Visible;
+            if (WebServicesButton != null)
+                WebServicesButton.Visibility = Visibility.Hidden;
+
+            // set the default button
+            if (ClientOMButton != null)
+                ClientOMButton.IsChecked = true;
+
+            if (CurrentCredentials != null && CurrentCredentials.IsChecked.HasValue)
+            {
+                EnableConnectionSelection(CurrentCredentials.IsChecked.Value);
+            }
+        }
+
+        /// <summary>
+        /// for SP 2019 the connection for SP2013 can still be used. 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SP2019_Checked(object sender, RoutedEventArgs e)
+        {
+
+            if (SP2007Button != null)
+                SP2007Button.IsChecked = false;
+
+            if (SP2010Button != null)
+                SP2010Button.IsChecked = false;
+
+            if (SP2013Button != null)
+                SP2013Button.IsChecked = false;
+
+            if (SP2016Button != null)
+                SP2016Button.IsChecked = false;
+
+            if (O365Button != null)
+                O365Button.IsChecked = false;
+
+            // make the buttons visible
+
+            if (ClientOMButton != null)
+                ClientOMButton.Visibility = Visibility.Visible;
+
             if (WebServicesButton != null)
                 WebServicesButton.Visibility = Visibility.Hidden;
 
